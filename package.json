@@ -1,0 +1,50 @@
+{
+	"name": "@theonlyducks/videojs-area",
+	"title": "Video.js Area",
+	"version": "1.0.0",
+	"private": false,
+	"description": "Simple plugin for select area in video.js player",
+	"author": "Giovane Santos <giovanesantos1999@gmail.com>",
+	"license": "MIT",
+	"main": "index.js",
+	"scripts": {
+		"start": "webpack serve --progress"
+	},
+	"engines": {
+		"node": ">=16.0"
+	},
+	"files": [
+		"dist",
+		"LICENSE",
+		"README.md"
+	],
+	"keywords": [
+		"videojs",
+		"videojs-area",
+		"videojs-area-duck",
+		"videojs-plugin",
+		"videojs-plugin-zoom"
+	],
+	"browserslist": [
+		"defaults"
+	],
+	"peerDependencies": {
+		"video.js": ">= ^7"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.20.7",
+		"@babel/core": "^7.20.12",
+		"@babel/preset-env": "^7.20.2",
+		"babel-loader": "^9.1.2",
+		"css-loader": "^6.7.3",
+		"html-webpack-plugin": "^5.5.0",
+		"style-loader": "^3.3.1",
+		"video.js": "^7.21.1",
+		"webpack": "^5.75.0",
+		"webpack-cli": "^5.0.1",
+		"webpack-dev-server": "^4.11.1"
+	},
+	"dependencies": {
+		"garea.js": "^1.0.1-beta1"
+	}
+}
