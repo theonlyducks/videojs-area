@@ -9,7 +9,11 @@
 	content: "\f110";
 }
 
-.video-js .vjs-area-duck__canvas {
+.video-js .vjs-area-duck-canvas {
 	width: 100%;
 	height: 100%;
+}
+
+.video-js .vjs-area-duck-canvas .video-js {
+
 }

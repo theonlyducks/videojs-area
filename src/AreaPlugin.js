@@ -3,6 +3,7 @@ import packageJson from '../package.json';
 
 import { AreaButton } from './AreaButton';
 import { AreaCanvas } from './AreaCanvas';
+import { Core as Manager } from "garea.js";
 
 const { version: VERSION } = packageJson;
 
@@ -13,10 +14,30 @@ class AreaPlugin extends Plugin {
 	constructor(player, options = {}) {
 		super(player, options);
 		videojs.log('area plugin start ', options);
-		player.getChild('ControlBar').addChild('AreaButton');
+		player.getChild('ControlBar').addChild('AreaButton', { plugin: this });
 		player.addChild('AreaCanvas', { plugin: this });
+		player.on('playing', () => {
+			this.canvas = document.getElementById('vjs-canvas');
+		});
 	}
 
+	addArea() {
+		this.canvas.style.display = 'block';
+		this.canvas.style.position = 'absolute';
+		this.manager = new Manager('vjs-canvas');
+		this.manager.addDraw('area', {
+
+		});
+		const draw = this.manager.getDraw('area');
+		draw.setColor('area', 'transparent');
+		this.manager.setEdit('area');
+		this.manager.create();
+	}
+
+	removeArea() {
+		this.canvas.style.display = 'none';
+		this.manager.removeDraw('area');
+	}
 }
 
 AreaPlugin.defaultState = {};
