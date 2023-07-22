@@ -7,5 +7,8 @@ import '../src/plugin';
 
 window.onload = () => {
 	const video = videojs('my-video');
-	video.areaPlugin();
+	const plugin = video.areaPlugin();
+	video.on('playing', () => {
+		plugin.addArea();
+	});
 };

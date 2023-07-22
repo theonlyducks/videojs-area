@@ -13,6 +13,7 @@ class AreaPlugin extends Plugin {
 
 	constructor(player, options = {}) {
 		super(player, options);
+		this.player = player;
 		videojs.log('area plugin start ', options);
 		player.getChild('ControlBar').addChild('AreaButton', { plugin: this });
 		player.addChild('AreaCanvas', { plugin: this });
@@ -22,6 +23,8 @@ class AreaPlugin extends Plugin {
 	}
 
 	addArea() {
+		const controlBar = this.player.getChild('ControlBar');
+		controlBar.hide();
 		this.canvas.style.display = 'block';
 		this.canvas.style.position = 'absolute';
 		this.manager = new Manager('vjs-canvas');
@@ -35,6 +38,8 @@ class AreaPlugin extends Plugin {
 	}
 
 	removeArea() {
+		const controlBar = this.player.getChild('ControlBar');
+		controlBar.show();
 		this.canvas.style.display = 'none';
 		this.manager.removeDraw('area');
 	}
